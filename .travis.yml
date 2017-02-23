@@ -11,6 +11,15 @@ addons:
     packages:
       - cmake
       - cmake-data
+      - libfreetype6-dev
+      - libgl1-mesa-dev
+      - libglew-dev
+      - libjpeg8-dev
+      - libopenal-dev
+      - libpthread-stubs0-dev
+      - libsndfile1-dev
+      - libx11-dev
+      - libxrandr-dev
 
 before_install:
   - dub fetch doveralls
