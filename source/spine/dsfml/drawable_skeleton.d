@@ -254,7 +254,7 @@ unittest
     // attaching check
     {
         int slotIdx = sd.findSlotIndex("slot-primary");
-        Slot slot = si2.getSlotByIndex(slotIdx);
+        spSlot* slot = si2.getSlotByIndex(slotIdx);
         auto att = si2.getAttachmentForSlotIndex(slotIdx, "watergun-skin");
 
         si2.setAttachment("slot-primary", "watergun-skin");
