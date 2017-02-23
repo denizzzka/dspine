@@ -262,16 +262,16 @@ unittest
         {
             // skeleton attached to skeleton test
 
-            auto ak74data = new SkeletonData("test_resources/spineboy.json", a);
-            auto ak74 = new SkeletonDrawable(ak74data);
+            auto attSkData = new SkeletonData("test_resources/spineboy.json", a);
+            auto attSk = new SkeletonDrawable(attSkData);
 
             auto oldNum = attachedSkeletons.length;
 
-            setAttachment(si2, "ak 74", slot, ak74);
+            setAttachment(si2, "some name", slot, attSk);
 
             assert(slot.attachment !is null);
 
-            setAttachment(si2, "ak 74", slot, null); // remove attach
+            setAttachment(si2, "some name", slot, null); // remove attach
 
             assert(slot.attachment is null);
             assert(oldNum == attachedSkeletons.length);
