@@ -2,22 +2,21 @@ Esoteric Software Spine runtime binding for D
 
 USAGE:
 
-Clone into your project directory Spine runtimes:
+Clone into your project directory source of Spine runtimes:
 
-$ git clone https://github.com/EsotericSoftware/spine-runtimes
+$ git clone --depth=1 https://github.com/EsotericSoftware/spine-runtimes
 
-Compile it:
+Compile spine-c library:
 
-$ cd spine-runtimes/
+$ cd spine-runtimes/spine-c
 $ cmake .
-$ cd spine-c
 $ make
 ...
 [100%] Linking C static library libspine-c.a
 [100%] Built target spine-c
 ...
 
-Then add path to Spine runtime into your DUB package file.
+Then add path to Spine runtime C library into your DUB package file.
 For linux and DUB SDL package file format path string will be:
 
 sourceFiles "spine-runtimes/spine-c/libspine-c.a" platform="posix"

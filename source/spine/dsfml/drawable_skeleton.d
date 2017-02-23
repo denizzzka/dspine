@@ -238,8 +238,8 @@ unittest
     import spine.skeleton_bounds;
     import spine.skeleton_attach: setAttachment;
 
-    auto a = new Atlas("resources/textures/GAME.atlas");
-    auto sd = new SkeletonData("resources/animations/actor_pretty.json", a);
+    auto a = new Atlas("test_resources/spineboy.atlas");
+    auto sd = new SkeletonData("test_resources/spineboy.json", a);
     sd.defaultSkin = sd.findSkin("default");
 
     auto si1 = new Skeleton(sd);
@@ -248,21 +248,21 @@ unittest
     auto bounds = new SkeletonBounds;
     bounds.update(si2, true);
 
-    int boneIdx = sd.findBoneIndex("root-hands");
+    int boneIdx = sd.findBoneIndex("gunTip");
     auto bone = si1.getBoneByIndex(boneIdx);
 
     // attaching check
     {
-        int slotIdx = sd.findSlotIndex("slot-primary");
+        int slotIdx = sd.findSlotIndex("front_fist");
         spSlot* slot = si2.getSlotByIndex(slotIdx);
-        auto att = si2.getAttachmentForSlotIndex(slotIdx, "watergun-skin");
+        auto att = si2.getAttachmentForSlotIndex(slotIdx, "front_fist_open");
 
-        si2.setAttachment("slot-primary", "watergun-skin");
+        si2.setAttachment("front_fist", "front_fist_open");
 
         {
             // skeleton attached to skeleton test
 
-            auto ak74data = new SkeletonData("resources/animations/weapon-ak74.json", a);
+            auto ak74data = new SkeletonData("test_resources/spineboy.json", a);
             auto ak74 = new SkeletonDrawable(ak74data);
 
             auto oldNum = attachedSkeletons.length;

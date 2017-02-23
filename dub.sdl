@@ -6,6 +6,9 @@ license "MIT"
 targetType "sourceLibrary"
 dependency "dsfml" version="~>2.1.1"
 
-configuration "unit_test" {
-	sourceFiles "spine-runtimes/spine-c/libspine-c.a" platform="posix" version="~>0.7.23"
+configuration "default" {
+}
+
+configuration "unittest" {
+	sourceFiles "spine-runtimes/spine-c/libspine-c.a" platform="posix"
 }
