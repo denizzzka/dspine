@@ -1,3 +1,5 @@
+Esoteric Software Spine runtime binding for D
+
 USAGE:
 
 Clone into your project directory Spine runtimes:
