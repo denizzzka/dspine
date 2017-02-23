@@ -8,7 +8,7 @@ d:
 before_install:
   - dub fetch doveralls
 
-script: ./test.sh
+script: bash test.sh
 
 after_success:
   - rm -f .\.-*.lst
