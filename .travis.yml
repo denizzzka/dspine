@@ -2,7 +2,6 @@ language: d
 
 d:
   - dmd
-  - gdc
   - ldc
 
 addons:
@@ -16,7 +15,7 @@ addons:
 before_install:
   - dub fetch doveralls
 
-script: bash test.sh
+script: bash -e test.sh
 
 after_success:
   - rm -f .\.-*.lst
