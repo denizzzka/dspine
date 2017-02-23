@@ -1,0 +1,15 @@
+language: d
+
+d:
+  - dmd
+  - gdc
+  - ldc
+
+before_install:
+  - dub fetch doveralls
+
+script: ./test.sh
+
+after_success:
+  - rm -f .\.-*.lst
+  - if [ ${DC} = "dmd" ]; then dub run doveralls; fi
