@@ -9,7 +9,7 @@ private static size_t skeletonsCount = 0;
 
 alias SkAtt = spSkeletonAttachment_unofficial;
 
-void setAttachment(Skeleton si, string name, spSlot* slot, Skeleton addingSkeleton)
+void setAttachment(Skeleton si, string creatingAttachmentName, spSlot* slot, Skeleton addingSkeleton)
 {
     // It is need to remove old skeleton attachment from array?
     if(slot.attachment !is null && slot.attachment.type == spAttachmentType.SKELETON)
@@ -27,7 +27,7 @@ void setAttachment(Skeleton si, string name, spSlot* slot, Skeleton addingSkelet
     {
         attachedSkeletons[skeletonsCount] = addingSkeleton;
 
-        SkAtt* attachment = createSkeletonAttachment(name, skeletonsCount);
+        SkAtt* attachment = createSkeletonAttachment(creatingAttachmentName, skeletonsCount);
 
         spSlot_setAttachment(slot, &attachment._super);
 
@@ -36,11 +36,11 @@ void setAttachment(Skeleton si, string name, spSlot* slot, Skeleton addingSkelet
 }
 
 // TODO: it is need to add ability removing of attach
-private SkAtt* createSkeletonAttachment(string name, size_t attachedSkeletonIdx)
+private SkAtt* createSkeletonAttachment(string creatingAttachmentName, size_t attachedSkeletonIdx)
 {
     SkAtt* sa = cast(SkAtt*) spineCalloc(SkAtt.sizeof, 1, __FILE__, __LINE__);
 
-    _spAttachment_init(&sa._super, name.toStringz, spAttachmentType.SKELETON, &disposeSkeletonAttachment);
+    _spAttachment_init(&sa._super, creatingAttachmentName.toStringz, spAttachmentType.SKELETON, &disposeSkeletonAttachment);
     sa.attachedSkeletonIdx = attachedSkeletonIdx;
 
     return sa;
