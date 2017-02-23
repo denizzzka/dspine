@@ -1,0 +1,11 @@
+name "dspine"
+description "Esoteric Software Spine runtime binding"
+authors "Denis Feklushkin"
+copyright "Copyright © 2017, Denis Feklushkin"
+license "MIT"
+targetType "sourceLibrary"
+dependency "dsfml" version="~>2.1.1"
+
+configuration "unit_test" {
+	sourceFiles "spine-runtimes/spine-c/libspine-c.a" platform="posix" version="~>0.7.23"
+}
