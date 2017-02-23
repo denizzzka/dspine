@@ -1,4 +1,5 @@
 Esoteric Software Spine runtime binding for D
+=============================================
 
 USAGE:
 
