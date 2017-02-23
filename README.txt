@@ -1,6 +1,8 @@
 Esoteric Software Spine runtime binding for D
 =============================================
 
+(Currently only DSFML is supported.)
+
 USAGE:
 
 Clone into your project directory source of Spine runtimes:
