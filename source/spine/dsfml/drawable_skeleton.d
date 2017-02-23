@@ -284,8 +284,6 @@ unittest
     destroy(si2);
 }
 
-bool enforceSmooth = false;
-
 private:
 
 Color colorize(in spSkeleton* skeleton,  in spSlot* slot)

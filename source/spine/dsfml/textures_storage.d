@@ -3,7 +3,7 @@ module spine.dsfml.textures_storage;
 import spine.atlas;
 import dsfml.graphics;
 
-bool enforceSmooth = false;
+static bool enforceSmooth = false;
 
 public static Texture[size_t] loadedTextures; // FIXME: need package modifier
 private static size_t texturesCount = 0;
@@ -27,15 +27,15 @@ void _spAtlasPage_createTexture(spAtlasPage* self, const(char)* path)
 
     Texture t = loadTexture(path.fromStringz.to!string);
 
-	if (enforceSmooth || self.magFilter == spAtlasFilter.SP_ATLAS_LINEAR)
+    if (enforceSmooth || self.magFilter == spAtlasFilter.SP_ATLAS_LINEAR)
         t.setSmooth(true);
 
-	if (self.uWrap == spAtlasWrap.SP_ATLAS_REPEAT && self.vWrap == spAtlasWrap.SP_ATLAS_REPEAT)
-        t.setRepeated = true;
+    if (self.uWrap == spAtlasWrap.SP_ATLAS_REPEAT && self.vWrap == spAtlasWrap.SP_ATLAS_REPEAT)
+        t.setRepeated(true);
 
-	self.width = t.getSize.x;
-	self.height = t.getSize.y;
-	self.rendererObject = cast(void*) texturesCount;
+    self.width = t.getSize.x;
+    self.height = t.getSize.y;
+    self.rendererObject = cast(void*) texturesCount;
 
     loadedTextures[texturesCount] = t;
 
