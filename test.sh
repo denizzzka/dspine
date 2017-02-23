@@ -9,6 +9,8 @@ make
 sudo make install
 cd -
 
+sudo ldconfig
+
 cd spine-runtimes/spine-c
 cmake .
 make
