@@ -5,8 +5,15 @@ d:
   - gdc
   - ldc
 
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports # cmake / doxygen
+    packages:
+      - cmake
+      - cmake-data
+
 before_install:
-  - sudo apt-get install -t unstable cmake
   - dub fetch doveralls
 
 script: bash test.sh
