@@ -22,6 +22,7 @@ addons:
       - libsndfile1-dev
       - libx11-dev
       - libxrandr-dev
+      - xvfb
 
 before_install:
   - dub fetch doveralls
