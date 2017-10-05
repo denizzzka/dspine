@@ -176,9 +176,9 @@ void spAtlas_dispose (spAtlas* atlas);
 
 char* _spUtil_readFile(const(char)* path, int* length)
 {
-    return _readFile(path, length); // TODO: it is need to set up something like errno here
+    return _spReadFile(path, length); // TODO: it is need to set up something like errno here
 }
 
-char* _readFile (const(char)* path, int* length);
+char* _spReadFile (const(char)* path, int* length);
 
 spAtlasRegion* spAtlas_findRegion (const(spAtlas)* self, const(char)* name);

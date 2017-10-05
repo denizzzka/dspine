@@ -51,14 +51,14 @@ private extern (C) void disposeSkeletonAttachment(spAttachment* attachment)
 	SkAtt* self = cast(SkAtt*) attachment;
 
 	_spAttachment_deinit(attachment);
-    _free(self);
+    _spFree(self);
 }
 
 private void* spineCalloc(size_t num, size_t size, string fileName, int line)
 {
     assert(size > 0);
 
-    auto ret = _calloc(num, size, fileName.toStringz, line);
+    auto ret = _spCalloc(num, size, fileName.toStringz, line);
 
     enforce(ret !is null);
 
@@ -77,8 +77,8 @@ struct spSkeletonAttachment_unofficial
 
 private:
 
-void* _calloc (size_t num, size_t size, const(char)* file, int line);
-void _free (void* ptr);
+void* _spCalloc (size_t num, size_t size, const(char)* file, int line);
+void _spFree (void* ptr);
 
 void _spAttachment_init (spAttachment* self, const(char)* name, spAttachmentType type, void function(spAttachment* self) dispose);
 void _spAttachment_deinit (spAttachment* self);
