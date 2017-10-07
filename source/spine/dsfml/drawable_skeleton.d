@@ -248,16 +248,16 @@ unittest
     auto bounds = new SkeletonBounds;
     bounds.update(si2, true);
 
-    int boneIdx = sd.findBoneIndex("gunTip");
+    int boneIdx = sd.findBoneIndex("gun-tip");
     auto bone = si1.getBoneByIndex(boneIdx);
 
     // attaching check
     {
-        int slotIdx = sd.findSlotIndex("front_fist");
+        int slotIdx = sd.findSlotIndex("front-fist");
         spSlot* slot = si2.getSlotByIndex(slotIdx);
-        auto att = si2.getAttachmentForSlotIndex(slotIdx, "front_fist_open");
+        auto att = si2.getAttachmentForSlotIndex(slotIdx, "front-fist-open");
 
-        si2.setAttachment("front_fist", "front_fist_open");
+        si2.setAttachment("front-fist", "front-fist-open");
 
         {
             // skeleton attached to skeleton test
