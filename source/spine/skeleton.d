@@ -13,7 +13,7 @@ class SkeletonData
     {
         spSkeletonJson* json = spSkeletonJson_create(atlas.atlas);
         sp_skeletonData = spSkeletonJson_readSkeletonDataFile(json, filename.toStringz);
-        assert(sp_skeletonData);
+        assert(sp_skeletonData, "file '"~filename~"' isn't opened");
         spSkeletonJson_dispose(json);
     }
 
