@@ -92,7 +92,7 @@ class SkeletonDrawable : Skeleton, Drawable
                     debug(spine_dsfml) writeln("call computeWorldVertices, args:");
                     debug(spine_dsfml) writeln("regionAttachment=", *regionAttachment);
                     debug(spine_dsfml) writeln("and slot.bone=", *slot.bone);
-                    spRegionAttachment_computeWorldVertices(regionAttachment, slot.bone, worldVertices.ptr, 0 , 1);
+                    spRegionAttachment_computeWorldVertices(regionAttachment, slot.bone, worldVertices.ptr, 0 , 2);
 
                     debug(spine_dsfml) writeln("call colorize");
                     Color _c = colorize(sp_skeleton_protected, slot);
@@ -214,20 +214,20 @@ class SkeletonDrawable : Skeleton, Drawable
             }
         }
 
-        debug(spine_dsfml)
+        debug
         {
-            writeln("vertexArray:");
+            debug(spine_dsfml) writeln("vertexArray:");
 
             foreach(j; 0 .. vertexArray.getVertexCount)
             {
-                writeln(vertexArray[j]);
+                debug(spine_dsfml) writeln(vertexArray[j]);
+
                 assert(!vertexArray[j].position.x.isNaN);
                 assert(!vertexArray[j].position.y.isNaN);
             }
-
-            writeln("call SFML draw");
         }
 
+        debug(spine_dsfml) writeln("call SFML draw");
         target.draw(vertexArray, states);
     }
 }
