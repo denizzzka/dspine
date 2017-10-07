@@ -12,8 +12,11 @@ class SkeletonData
     this(string filename, Atlas atlas)
     {
         spSkeletonJson* json = spSkeletonJson_create(atlas.atlas);
+        assert(json);
+
         sp_skeletonData = spSkeletonJson_readSkeletonDataFile(json, filename.toStringz);
-        assert(sp_skeletonData, "file '"~filename~"' isn't opened");
+        enforce(sp_skeletonData, "file '"~filename~"' isn't opened");
+
         spSkeletonJson_dispose(json);
     }
 
