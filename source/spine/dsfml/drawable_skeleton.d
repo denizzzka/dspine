@@ -238,8 +238,8 @@ unittest
     import spine.skeleton_bounds;
     import spine.skeleton_attach: setAttachment;
 
-    auto a = new Atlas("test_resources/spineboy.atlas");
-    auto sd = new SkeletonData("test_resources/spineboy.json", a);
+    auto a = new Atlas("spine-runtimes/examples/spineboy/export/spineboy.atlas");
+    auto sd = new SkeletonData("spine-runtimes/examples/spineboy/export/spineboy-ess.json", a);
     sd.defaultSkin = sd.findSkin("default");
 
     auto si1 = new Skeleton(sd);
@@ -262,7 +262,7 @@ unittest
         {
             // skeleton attached to skeleton test
 
-            auto attSkData = new SkeletonData("test_resources/spineboy.json", a);
+            auto attSkData = new SkeletonData("spine-runtimes/examples/spineboy/export/spineboy-ess.json", a);
             auto attSk = new SkeletonDrawable(attSkData);
 
             auto oldNum = attachedSkeletons.length;
