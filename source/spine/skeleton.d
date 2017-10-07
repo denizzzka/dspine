@@ -1,6 +1,7 @@
 module spine.skeleton;
 
 import spine.atlas;
+import spine.color;
 import std.string: toStringz;
 import std.exception: enforce;
 
@@ -362,7 +363,8 @@ struct spSlotData
 	const(char*) name;
 	const(spBoneData*) boneData;
 	const(char*) attachmentName;
-	float r=0, g=0, b=0, a=0;
+	spColor color;
+	spColor* darkColor;
 	spBlendMode blendMode = spBlendMode.NORMAL;
 }
 
@@ -370,7 +372,8 @@ public struct spSlot
 {
 	const(spSlotData)* data;
 	spBone* bone;
-	float r=0, g=0, b=0, a=0;
+	spColor color;
+	spColor* darkColor;
 	const(spAttachment)* attachment;
 
 	int attachmentVerticesCapacity;
@@ -400,7 +403,7 @@ struct spSkeleton
     spPathConstraint** pathConstraints;
 
     const spSkin* skin;
-    float r=0, g=0, b=0, a=0;
+    spColor color;
     float time=0;
     int/*bool*/flipX=0, flipY=0;
     float x=0, y=0;

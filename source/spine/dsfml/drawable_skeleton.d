@@ -267,14 +267,15 @@ unittest
 
             auto oldNum = attachedSkeletons.length;
 
-            setAttachment(si2, "some name", slot, attSk);
+            setAttachment(si2, "some-name", slot, attSk);
 
+            assert(oldNum + 1 == attachedSkeletons.length); // new attached skeleton added to array
             assert(slot.attachment !is null);
 
-            setAttachment(si2, "some name", slot, null); // remove attach
+            setAttachment(si2, "some-name", slot, null); // remove attach
 
             assert(slot.attachment is null);
-            assert(oldNum == attachedSkeletons.length);
+            assert(oldNum == attachedSkeletons.length); // detached skeleton removed from array
         }
     }
 
@@ -288,16 +289,21 @@ private:
 
 Color colorize(in spSkeleton* skeleton,  in spSlot* slot)
 {
+    import spine.color;
     import std.conv: to;
+
+    spColor spc = skeleton.color;
+    spc *= slot.color;
+    spc *= 255.0f;
 
     Color ret;
 
     with(ret)
     {
-        r = (skeleton.r * slot.r * 255.0f).to!ubyte;
-        g = (skeleton.g * slot.g * 255.0f).to!ubyte;
-        b = (skeleton.b * slot.b * 255.0f).to!ubyte;
-        a = (skeleton.a * slot.a * 255.0f).to!ubyte;
+        r = spc.r.to!ubyte;
+        g = spc.g.to!ubyte;
+        b = spc.b.to!ubyte;
+        a = spc.a.to!ubyte;
     }
 
     return ret;
