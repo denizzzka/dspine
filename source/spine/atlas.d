@@ -3,6 +3,7 @@ module spine.atlas;
 import std.string: toStringz;
 import std.exception;
 import spine.skeleton: spAttachment;
+import spine.color: spColor;
 
 class Atlas
 {
@@ -100,7 +101,7 @@ struct spRegionAttachment
 	spAttachment _super;
 	const char* path;
 	float x, y, scaleX, scaleY, rotation, width, height;
-	float r, g, b, a;
+	spColor color;
 
 	void* rendererObject;
 	int regionOffsetX, regionOffsetY; /* Pixels stripped from the bottom left, unrotated. */
@@ -109,10 +110,11 @@ struct spRegionAttachment
 
 	float[8] offset;
 	float[8] uvs;
-};
+}
 
 enum spVertexIndex
 {
+    //~ BLX = 0, BLY, ULX, ULY, URX, URY, BRX, BRY
     X1 = 0,
     Y1,
     X2,
@@ -155,7 +157,7 @@ struct spMeshAttachment
 	int trianglesCount;
 	ushort* triangles;
 
-	float r, g, b, a;
+	spColor color;
 
 	int hullLength;
 
