@@ -338,6 +338,8 @@ public enum spAttachmentType
 	MESH,
 	LINKED_MESH,
 	PATH,
+	ATTACHMENT_POINT,
+	ATTACHMENT_CLIPPING,
 	SKELETON = 1000 /// Unofficial type
 }
 
@@ -351,7 +353,7 @@ struct spAttachment
 
 enum spBlendMode
 {
-	NORMAL,
+    NORMAL,
     ADDITIVE,
     MULTIPLY,
     SCREEN

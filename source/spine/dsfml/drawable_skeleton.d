@@ -92,7 +92,7 @@ class SkeletonDrawable : Skeleton, Drawable
                     debug(spine_dsfml) writeln("call computeWorldVertices, args:");
                     debug(spine_dsfml) writeln("regionAttachment=", *regionAttachment);
                     debug(spine_dsfml) writeln("and slot.bone=", *slot.bone);
-                    spRegionAttachment_computeWorldVertices(regionAttachment, slot.bone, worldVertices.ptr);
+                    spRegionAttachment_computeWorldVertices(regionAttachment, slot.bone, worldVertices.ptr, 0 , 1);
 
                     debug(spine_dsfml) writeln("call colorize");
                     Color _c = colorize(sp_skeleton_protected, slot);
@@ -317,6 +317,6 @@ Color colorize(in spSkeleton* skeleton,  in spSlot* slot)
 
 extern(C):
 
-void spRegionAttachment_computeWorldVertices (spRegionAttachment* self, const(spBone)* bone, float* vertices);
+void spRegionAttachment_computeWorldVertices (spRegionAttachment* self, const(spBone)* bone, float* vertices, int offset, int stride);
 
 void spMeshAttachment_computeWorldVertices (spMeshAttachment* self, const(spSlot)* slot, float* worldVertices);
