@@ -5,6 +5,7 @@ import spine.dsfml.textures_storage;
 import spine.skeleton;
 import spine.skeleton_attach;
 import spine.animation;
+import spine.color;
 import dsfml.graphics;
 import dsfml.graphics.drawable;
 import std.conv: to;
@@ -285,15 +286,8 @@ unittest
     destroy(si2);
 }
 
-private:
-
-Color colorize(in spSkeleton* skeleton,  in spSlot* slot)
+Color spColor2sfmlColor(spColor spc)
 {
-    import spine.color;
-    import std.conv: to;
-
-    spColor spc = skeleton.color;
-    spc *= slot.color;
     spc *= 255.0f;
 
     Color ret;
@@ -307,6 +301,18 @@ Color colorize(in spSkeleton* skeleton,  in spSlot* slot)
     }
 
     return ret;
+}
+
+private:
+
+Color colorize(in spSkeleton* skeleton,  in spSlot* slot)
+{
+    import std.conv: to;
+
+    spColor spc = skeleton.color;
+    spc *= slot.color;
+
+    return spColor2sfmlColor(spc);
 }
 
 extern(C):
